@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cron": "^1.5.1",
     "react": "^16.6.3",
+    "react-apollo": "^1.1.2",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "remote-redux-devtools": "^0.5.14",
+    "subscriptions-transport-ws": "^0.7.3"
   },
   "scripts": {
     "start": "react-scripts start",
