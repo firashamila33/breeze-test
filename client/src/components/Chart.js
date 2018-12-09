@@ -44,7 +44,7 @@ class Chart extends Component {
     return (
       <LineChart
         width={900}
-        height={600}
+        height={570}
         data={visualizationList
           .map(e => {
             return { createdAt: e.createdAt, co2Level: e.level };
