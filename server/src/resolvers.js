@@ -2,11 +2,12 @@ import { PubSub, withFilter } from "graphql-subscriptions";
 import { CronJob } from "cron";
 import faker from "faker";
 import NodeCache from "node-cache";
+import _ from 'lodash'
 
 const pubsub = new PubSub();
 const myCache = new NodeCache({ stdTTL: 0, checkperiod: 0 });
 
-const job = new CronJob("*/10 * * * * *", function() {
+const job = new CronJob("*/4 * * * * *", function() {
   var now = new Date();
   const newVisualization = {
     _id: Date.now(),
@@ -16,9 +17,9 @@ const job = new CronJob("*/10 * * * * *", function() {
   pubsub.publish("newVisualization", {
     newVisualization
   });
-
   let visualizationList = [];
   let cachedVisualisations = myCache.get("co2Visualizations");
+  //if cache is not empty then initialise visualisations list with cachedVisualisations
   if (cachedVisualisations) {
     visualizationList = cachedVisualisations;
   }
@@ -31,16 +32,11 @@ export const resolvers = {
   Query: {
     visualizationList: () => {
       return myCache.get("co2Visualizations");
-    }
+    },
   },
   Subscription: {
     newVisualization: {
-      subscribe: withFilter(
-        () => pubsub.asyncIterator("newVisualization"),
-        (payload, variables) => {
-          return true;
-        }
-      )
+      subscribe: () => pubsub.asyncIterator("newVisualization"),
     }
   }
 };

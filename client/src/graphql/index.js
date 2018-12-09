@@ -10,7 +10,7 @@ export const visualisationSubscription = gql`
   }
 `;
 
-export const visualizationList = gql`
+export const visualizationListQuery = gql`
   query visualizationList {
     visualizationList {
       _id
@@ -19,3 +19,4 @@ export const visualizationList = gql`
     }
   }
 `;
+

@@ -1,11 +1,4 @@
-import { INITIATE_VISUALIZATIONS, ADD_VISUALIZATION } from "./types";
-
-export const initiateVisualizations = data => {
-  return {
-    type: INITIATE_VISUALIZATIONS,
-    payload: data
-  };
-};
+import { ADD_VISUALIZATION } from "./types";
 
 export const addNewVisualization = data => {
   return {

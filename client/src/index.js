@@ -17,11 +17,12 @@ import {
   createNetworkInterface
 } from "react-apollo";
 
+//creating a network interface with graphQL server
 const networkInterface = createNetworkInterface({
   uri: "http://localhost:3002/graphql",
   credentials: "same-origin"
 });
-//GraphQL subscriptions / endpoint
+//GraphQL subscriptions endpoint
 const wsClient = new SubscriptionClient("ws://localhost:3002/subscriptions", {
   reconnect: true
 });
