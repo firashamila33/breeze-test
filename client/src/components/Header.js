@@ -23,7 +23,7 @@ function DenseAppBar(props) {
       <AppBar position="static" style={{ backgroundColor: "#2fc4ff" }}>
         <Toolbar style={{ flexDirection: "row", alignItems: "space-between" }}>
           <Typography variant="h6" color="red" className={classes.grow}>
-            Breeze Dashbord
+            Breeze CO2 Dashboard
           </Typography>
           <div style={{ marginLeft: 20 }} className={classes.sectionDesktop}>
             <Timeline fontSize={"default"} />

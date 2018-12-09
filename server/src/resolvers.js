@@ -5,14 +5,14 @@ import NodeCache from "node-cache";
 import _ from 'lodash'
 
 const pubsub = new PubSub();
-const myCache = new NodeCache({ stdTTL: 0, checkperiod: 0 });
+const myCache = new NodeCache({ stdTTL: 0, checkperiod: 0 });//cache will persist forever
 
-const job = new CronJob("*/4 * * * * *", function() {
+const job = new CronJob("*/10 * * * * *", function() {
   var now = new Date();
   const newVisualization = {
     _id: Date.now(),
     createdAt: now.toTimeString().split(" ")[0],
-    level: faker.random.number({ min: 100, max: 4000, precision: 0.01 })
+    level: faker.random.number({ min: 350, max: 5000, precision: 0.01 })
   };
   pubsub.publish("newVisualization", {
     newVisualization
